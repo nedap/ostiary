@@ -7,22 +7,22 @@ module Ostiary
     end
 
     def authorize!(action)
-      policies.all? do |policy|
-        assert_policy!(policy, action, &Proc.new)
+      policies.each do |policy|
+        next if policy_met?(policy, action, &Proc.new)
+        raise PolicyBroken, policy.error_message(action)
       end
     end
 
     def authorized?(action)
       policies.all? do |policy|
-        policy.met?(action) { yield(policy.role) }
+        policy_met?(policy, action, &Proc.new)
       end
     end
 
-    def assert_policy!(policy, action)
-      return true if policy.met?(action) do
-        yield(policy.role)
-      end
-      raise PolicyBroken, policy.error_message(action)
+    private
+
+    def policy_met?(policy, action)
+      policy.met?(action) { yield(policy.name) }
     end
 
   end
