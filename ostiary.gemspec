@@ -6,18 +6,23 @@ require 'ostiary/version'
 Gem::Specification.new do |spec|
   spec.name          = "ostiary"
   spec.version       = Ostiary::VERSION
+  spec.author        = "Jacques Hakvoort"
   spec.authors       = ["Jacques Hakvoort"]
   spec.email         = ["jacques.hakvoort@nedap.com"]
 
   spec.homepage      = "https://www.pepme.net"
-  spec.summary       = "Ostiar will enforce security per controller/action"
+  spec.summary       = "Limit access to controllers/actions with policies"
   spec.description   = <<-TXT;
-    from wikipedia: "The porter had in ancient times the duty of opening and closing the church-door and of guarding the church;"
+    from wikipedia: "An ostiarius, a Latin word sometimes anglicized as ostiary
+    but often literally translated as porter or doorman, originally was a
+    servant or guard posted at the entrance of a building. See also gatekeeper."
     Ostiary is a security gem for your controllers & actions.
-    It employs a :before_filter like call to set restrictions per controller/action.
-    You can pass your own security call in block and handle the PolicyBroken yourself.
-    Rules are inherited from parent classes.
+    It employs a before_filter-like call to set policies per controller/action.
+    You can pass your own security call in block and handle the PolicyBroken
+    yourself.
+    Policies are also inherited from parent classes.
   TXT
+  spec.license = 'MIT'
 
   spec.metadata['allowed_push_host'] = "https://github.com/nedap'"
 
