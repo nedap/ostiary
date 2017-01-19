@@ -37,15 +37,15 @@ rescue Ostiary::PolicyBroken => e
 end
 ```
 
-in each controller you wish to secure, you can call `required_application_role`, just like `before_filter` & `after_filter` of Rails.
+in each controller you wish to secure, you can call `ostiary_policy`, just like `before_filter` & `after_filter` of Rails.
 
 ```ruby
 # Require the :list role on the entire controller
-required_application_role :list
+ostiary_policy :list
 
 # Require the :view role only on the index & show actions
-required_application_role :view, only: [:index, :show]
+ostiary_policy :view, only: [:index, :show]
 
 # Require the :edit role except on the index & show actions
-required_application_role :edit, except: [:index, :show]
+ostiary_policy :edit, except: [:index, :show]
 ```
