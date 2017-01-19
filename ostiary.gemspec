@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jacques Hakvoort"]
   spec.email         = ["jacques.hakvoort@nedap.com"]
 
-  spec.homepage      = "https://www.pepme.net"
+  spec.homepage      = "https://github.com/nedap/ostiary"
   spec.summary       = "Limit access to controllers/actions with policies"
   spec.description   = <<-TXT;
     from wikipedia: "An ostiarius, a Latin word sometimes anglicized as ostiary
@@ -23,8 +23,6 @@ Gem::Specification.new do |spec|
     Policies are also inherited from parent classes.
   TXT
   spec.license = 'MIT'
-
-  spec.metadata['allowed_push_host'] = "https://github.com/nedap'"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
