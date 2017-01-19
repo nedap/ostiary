@@ -1,5 +1,7 @@
 # Ostiary
 
+[![Build Status](https://travis-ci.com/nedap/ostiary.svg?token=4BotuBJP2R9yGGT125VA&branch=master)](https://travis-ci.com/nedap/ostiary)
+
 This gem will help you enforce 'policies' when viewing controllers/actions.
 This is done by requiring certain roles for controllers, where you can
 optionally include or exclude certain actions.
