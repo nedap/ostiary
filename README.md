@@ -2,7 +2,7 @@
 
 An ostiarius, a Latin word sometimes anglicized as ostiary but often literally translated as porter or doorman, originally was a servant or guard posted at the entrance of a building. See also gatekeeper.
 
-# functionality
+## Functionality
 
 [![Build Status](https://travis-ci.com/nedap/ostiary.svg?token=4BotuBJP2R9yGGT125VA&branch=master)](https://travis-ci.com/nedap/ostiary)
 
