@@ -2,7 +2,7 @@ module Ostiary
   class PolicyExempted < Policy
 
     def inspect
-      "#{role} except #{rules.to_sentence}"
+      "#{name} except for #{rules.to_sentence}"
     end
 
     def met?(action)
@@ -11,7 +11,7 @@ module Ostiary
     end
 
     def error_message(action)
-      "#{action} not exempted for #{role} role"
+      "#{action} not exempted for #{name}"
     end
 
   end

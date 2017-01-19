@@ -2,7 +2,7 @@ module Ostiary
   class PolicyLimited < Policy
 
     def inspect
-      "#{role} only for #{rules.to_sentence}"
+      "#{name} only for #{rules.to_sentence}"
     end
 
     def met?(action)
@@ -11,7 +11,7 @@ module Ostiary
     end
 
     def error_message(action)
-      "#{action} limited by #{role} role"
+      "#{action} limited by #{name}"
     end
 
   end

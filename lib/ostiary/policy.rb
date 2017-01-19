@@ -1,14 +1,14 @@
 module Ostiary
   class Policy
-    attr_accessor :role, :rules
+    attr_accessor :name, :rules
 
-    def initialize(role, rules = [])
-      @role   = role
+    def initialize(name, rules = [])
+      @name   = name
       @rules  = rules || []
     end
 
     def inspect
-      "#{role}"
+      "#{name}"
     end
 
     def met?(*)
@@ -16,7 +16,7 @@ module Ostiary
     end
 
     def error_message(action)
-      "#{action} requires #{role} role"
+      "#{action} requires #{name}"
     end
 
   end
