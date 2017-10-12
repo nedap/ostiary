@@ -89,3 +89,6 @@ def authorized?(path)
 end
 ```
 
+## License
+
+ostiary is Copyright 2017 nedap and released under the MIT license which you should find included in the [LICENSE.txt](LICENSE.txt) file.
