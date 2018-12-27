@@ -8,14 +8,14 @@ module Ostiary
 
     def authorize!(action)
       policies.each do |policy|
-        next if policy_met?(policy, action, &Proc.new)
+        next if policy_met?(policy, action)
         raise PolicyBroken, policy.error_message(action)
       end
     end
 
     def authorized?(action)
       policies.all? do |policy|
-        policy_met?(policy, action, &Proc.new)
+        policy_met?(policy, action)
       end
     end
 

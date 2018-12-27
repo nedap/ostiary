@@ -2,12 +2,12 @@ module Ostiary
   class PolicyExempted < Policy
 
     def inspect
-      "#{name} except for #{rules.to_sentence}"
+      "#{name} except for #{actions.to_sentence}"
     end
 
     def met?(action)
-      return true if rules.include?(action)
-      yield
+      return true if actions.include?(action)
+      super
     end
 
     def error_message(action)

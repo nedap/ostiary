@@ -1,18 +1,18 @@
 module Ostiary
   class Policy
-    attr_accessor :name, :rules
+    attr_reader :name, :actions
 
-    def initialize(name, rules = [])
-      @name   = name
-      @rules  = rules || []
+    def initialize(name, actions = [])
+      @name = name
+      @actions = actions
     end
 
     def inspect
       "#{name}"
     end
 
-    def met?(*)
-      yield
+    def met?(_action)
+      yield name
     end
 
     def error_message(action)
