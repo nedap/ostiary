@@ -30,13 +30,14 @@ module Ostiary
       # By default a given role will be required for every action
       #
       # One line creates one policy, which are immediately created with the proper class
-      def ostiary_policy(role, actions = {})
+      def ostiary_policy(role, only: nil, except: nil)
+        raise ArgumentError, "Use either only or except" if only && except
         if actions.empty?
-          self.ostiary.policies << Policy.new(role)
-        elsif actions.has_key?(:only)
-          self.ostiary.policies << PolicyLimited.new(role, actions[:only])
-        elsif actions.has_key?(:except)
-          self.ostiary.policies << PolicyExempted.new(role, actions[:except])
+          ostiary.policies << Policy.new(role)
+        elsif only
+          ostiary.policies << PolicyLimited.new(role, only)
+        elsif except
+          ostiary.policies << PolicyExempted.new(role, except)
         end
       end
 
