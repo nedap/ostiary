@@ -28,16 +28,19 @@ module Ostiary
       # Exclude action(s) from requiring a role
       #  except: [*actions]
       # By default a given role will be required for every action
-      #
+      # Override role checking by passing a proc as method;
+      #   ostiary_policy method: :master?.to_proc, only: :show
       # One line creates one policy, which are immediately created with the proper class
-      def ostiary_policy(role, only: nil, except: nil)
-        raise ArgumentError, "Use either only or except" if only && except
+      def ostiary_policy(role = nil, only: nil, except: nil, method: nil)
+        raise ArgumentError, "Use at least role or method" unless method || role
+        raise ArgumentError, "Use either role or method"       if method && role
+        raise ArgumentError, "Use either only or except"       if except && only
         if actions.empty?
-          ostiary.policies << Policy.new(role)
+          ostiary.policies << Policy.new(role, method: method)
         elsif only
-          ostiary.policies << PolicyLimited.new(role, only)
+          ostiary.policies << PolicyLimited.new(role, only, method: method)
         elsif except
-          ostiary.policies << PolicyExempted.new(role, except)
+          ostiary.policies << PolicyExempted.new(role, except, method: method)
         end
       end
 

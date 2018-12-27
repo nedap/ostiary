@@ -1,9 +1,10 @@
 module Ostiary
   class Policy
-    attr_reader :name, :actions
+    attr_reader :name, :method, :actions
 
-    def initialize(name, actions = [])
+    def initialize(name, actions = [], method: nil)
       @name = name
+      @method = method
       @actions = actions
     end
 
@@ -12,7 +13,8 @@ module Ostiary
     end
 
     def met?(_action)
-      yield name
+      return yield name unless method
+      method.call
     end
 
     def error_message(action)
