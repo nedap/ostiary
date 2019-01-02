@@ -11,6 +11,16 @@ RSpec.describe Ostiary::Policy, type: :model do
     expect{ |b| subject.met?(:edit, &b) }.to yield_control
   end
 
+  context 'with method' do
+    let(:target) { double }
+    subject { Ostiary::Policy.new(:view, method: target.method(:test?)) }
+
+    it 'will call the method' do
+      expect(target).to receive(:test?)
+      subject.met?(:edit)
+    end
+  end
+
 end
 
 RSpec.describe Ostiary::PolicyExempted, type: :model do

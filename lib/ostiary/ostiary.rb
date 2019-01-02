@@ -6,23 +6,17 @@ module Ostiary
       @policies = []
     end
 
-    def authorize!(action)
+    def authorize!(action, &block)
       policies.each do |policy|
-        next if policy_met?(policy, action, &Proc.new)
+        next if policy.met?(action, block)
         raise PolicyBroken, policy.error_message(action)
       end
     end
 
-    def authorized?(action)
+    def authorized?(action, &block)
       policies.all? do |policy|
-        policy_met?(policy, action, &Proc.new)
+        policy.met?(action, block)
       end
-    end
-
-    private
-
-    def policy_met?(policy, action)
-      policy.met?(action) { yield(policy.name) }
     end
 
   end
