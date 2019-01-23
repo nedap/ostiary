@@ -37,7 +37,7 @@ module Ostiary
         raise ArgumentError, "Use either only or except"       if except && only
         raise ArgumentError, "Use a symbol for method:"        if method && !(method.is_a? Symbol)
 
-        if actions.empty?
+        if [only, except].all?(&:nil?)
           ostiary.policies << Policy.new(role, method: method&.to_proc)
         elsif only
           ostiary.policies << PolicyLimited.new(role, only, method: method&.to_proc)
