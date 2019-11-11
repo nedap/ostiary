@@ -4,6 +4,8 @@ An ostiarius, a Latin word sometimes anglicized as ostiary but often literally t
 
 ## Functionality
 
+[![CircleCI Status](https://circleci.com/gh/nedap/ostiary.svg?style=svg)](https://circleci.com/gh/nedap/ostiary)
+
 This gem will help you enforce 'policies' when viewing controllers/actions.
 This is done by requiring certain roles for controllers, where you can
 optionally include or exclude certain actions.
