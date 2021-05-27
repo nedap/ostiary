@@ -89,6 +89,26 @@ def authorized?(path)
 end
 ```
 
+## Development
+
+### Docker
+
+Build the image:
+
+    docker build -t ostiary
+
+Run the image:
+
+    docker run --mount 'type=bind,src=/home/jacques.hakvoort/Development/ostiary,dst=/app' -i -t ostiary sh
+
+You can now run the tests using:
+
+    rspec
+
+Release a new gem version using:
+
+    rake release
+
 ## License
 
 ostiary is Copyright 2017 nedap and released under the MIT license which you should find included in the [LICENSE.txt](LICENSE.txt) file.
