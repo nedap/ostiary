@@ -5,7 +5,7 @@ module Ostiary
       "#{name} only for #{actions.to_sentence}"
     end
 
-    def met?(action)
+    def met?(action, &block)
       return true unless actions.include?(action)
       super
     end
