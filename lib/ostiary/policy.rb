@@ -12,7 +12,7 @@ module Ostiary
       "#{name}"
     end
 
-    def met?(_action)
+    def met?(_action, &block)
       return yield name unless method
       method.call
     end
