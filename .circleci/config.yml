@@ -37,10 +37,6 @@ jobs:
     working_directory: ~/repo
 
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "26:01:13:3d:ac:4b:94:bb:b3:91:50:37:23:0d:6f:ba"
-
       - checkout
 
       - run:
