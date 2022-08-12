@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
     servant or guard posted at the entrance of a building. See also gatekeeper."
   TXT
   spec.license = 'MIT'
+  spec.files = Dir.glob("{lib}/**/*") + %w(LICENSE.txt README.md)
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", ">= 2.3.18"
