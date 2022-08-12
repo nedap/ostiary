@@ -52,7 +52,7 @@ jobs:
       - run:
           name: push gem release
           command: |
-            gem push
+            gem push ostiary
 
 workflows:
   version: 2
