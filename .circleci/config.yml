@@ -10,7 +10,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            gem install bundler:2.2.10
+            gem install bundler:2.3.18
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - run:
@@ -42,7 +42,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            gem install bundler:2.2.10
+            gem install bundler:2.3.18
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - run:
@@ -52,7 +52,7 @@ jobs:
       - run:
           name: push gem release
           command: |
-            gem push ostiary
+            gem push pkg/ostiary*.gem
 
 workflows:
   version: 2
