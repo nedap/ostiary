@@ -50,13 +50,9 @@ jobs:
           command: bundle exec rake build
 
       - run:
-          name: release to GitHub
+          name: push gem release
           command: |
-            mkdir -p $HOME/.gem
-            touch $HOME/.gem/credentials
-            chmod 0600 $HOME/.gem/credentials
-            printf -- "---\n:github: Bearer ${GITHUB_TOKEN}\n" > $HOME/.gem/credentials
-            gem push --key github --host https://rubygems.pkg.github.com/nedap pkg/$(ls -Art pkg | tail -n 1)
+            gem push
 
 workflows:
   version: 2
