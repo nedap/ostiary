@@ -15,7 +15,7 @@ module Ostiary
 
     def authorized?(action, &block)
       policies.all? do |policy|
-        policy.met?(action, block)
+        policy.met?(action, &block)
       end
     end
 
